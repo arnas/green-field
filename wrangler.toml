@@ -1,8 +1,13 @@
-name = "green-code"
+name = "green-field"
 main = "src/index.js"
 compatibility_date = "2022-11-05"
 usage_model = "bundled"
 env = { }
+
+kv_namespaces = [
+  { binding = "GREEN_FIELD_KV", id = "3b9d6e0f855b4de19508c4f6f8bcb3c5" }
+]
+
 
 [triggers]
 crons = [ ]
