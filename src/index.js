@@ -1,4 +1,3 @@
-import { getDate } from "./util.js";
 
 export default {
   async fetch(request, env) {
@@ -8,62 +7,661 @@ export default {
   },
 };
 
-/**
- * Many more examples available at:
- *   https://developers.cloudflare.com/workers/examples
- * @param {Request} request
- * @returns {Promise<Response>}
- */
 
-// <div class="relative bg-gray-50 overflow-hidden"><div class="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full"><div class="relative h-full max-w-screen-xl mx-auto"><svg class="absolute right-full transform translate-y-1/4 translate-x-1/4 lg:translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784"><defs><pattern id="f210dbf6-a58d-4871-961e-36d5016a0f49" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"></rect></pattern></defs><rect width="404" height="784" fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"></rect></svg><svg class="absolute left-full transform -translate-y-3/4 -translate-x-1/4 md:-translate-y-1/2 lg:-translate-x-1/2" width="404" height="784" fill="none" viewBox="0 0 404 784"><defs><pattern id="5d0dd344-b041-4d26-bec4-8d33ea57ec9b" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"></rect></pattern></defs><rect width="404" height="784" fill="url(#5d0dd344-b041-4d26-bec4-8d33ea57ec9b)"></rect></svg></div></div><div class="relative pt-6 pb-12 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32"><div class="max-w-screen-xl mx-auto px-4 sm:px-6"><nav class="relative flex items-center justify-between sm:h-10 md:justify-center"><div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0"><div class="flex items-center justify-between w-full md:w-auto"><a href="#" aria-label="Home"><img class="h-8 w-auto sm:h-10" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAgCAMAAACvkzHFAAABblBMVEUAAAAAAP+AgP9VVf9AQP9mZv9VVf9JSdtgYN9VVeNNTeZdRuhVVepOTutbSe1VVe5VVfFZTfJVVedVTOxbUu1YUO9aU+lXUOlXUetVTutZU+xXUe5bT+5aUOpYTupXUutaUOtaUOxYT+xWUu5ZUetYUOtZUe1XUO1WT+1aT+pXUexZUO1ZUOxXT+xZT+1YUetYUOtXUOxYUexZUOxYUexXUO1ZUO1ZUOtXUetZUOxYUOtYUOxZT+1ZUOxXUOxYT+xYUO1YUOtZUexYUOxZT+xYUO1ZT+1YUOtZUOxYUexXUOxYUexXUOxYUOxYUexXUOxYUOxYUOtYUOxYUOxYUOxYUOxYT+xYUOxYUOxYUOxYT+xYUOxYUOxYUOxYUO1YUOtYUOxYUOxYT+xYUOxYUOxYUOtYUOxYUOxYUOxXUOxYUOxYUOxZUOxYUOxYUOxYUOxYUOxYT+xYUOxYUOxYUOxYUOxYUOxYUOxYUOz///+7Nmg+AAAAeHRSTlMAAQIDBAUGBwgJCgsMDQ4PEhQVGxwgIiMmJygsLTAxMjM2Nzs/QEVGR0pPVlxeZGVmaWttbm9wc3V2goaKkJKUmZyhoqSmp6mqq6yur7CxsrO2urzFxsfLzdbX2tvc3d7g5ufp6uvs7e7v8PHy8/T19vf4+fv8/f4WzLQ2AAAAAWJLR0R5odzU0AAAAYlJREFUGBmVwfdbklEcxuGPJmWWVGbGaJctWpYRlU1HDlAkW1aWNHgVscSU58/ve8756cXsurxv9uLI02rzzRWC7PjHt8P7aXPwvcx2Dufqhsx8J3H35VUTwL6v8m4SV1ZwBjit4BVxZQXXgHMKZokrKLgF9ETyHhLXuyhvFHNPzlKSNn0VOVESc2dZW6Xj7ND1TM4jvP5D/NOYzJ9L/E/yi0x0gZ0ypcbmfBZzV87GbYJMuflrNoNJ1WTqA0CyIW8EJ1WXqaWAKXlTmIq8VhZTlDcJRPIizHMFeUxd3k8gkvcD80JBHrMmbxWYlDeBqchrZTEz8qaBgUimlgYOrMsbwUnXZFZSmJPTK41iCnNDzuYQQWZmdb2YJqbnk8z3i+yuY1Rma5DdJV7KeYzT2X+Unfpey2kewwx9U6tygja9i/ImMHk5nw8TV1DwAOhek1cgbk7BdeC8ghJxcwrOAlkF48QNy6smgI4leTniut/JbOdwBn/LlLtok3yy3Fy4THBq7MNCPsEe/AWSl71coHcZgwAAAABJRU5ErkJggg==" alt="Logo"/></a><div class="-mr-2 flex items-center md:hidden"><button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" id="main-menu" aria-label="Main menu" aria-haspopup="true"><svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div></div></div><div class="hidden md:flex md:space-x-10"><a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Product</a><a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features</a><a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Marketplace</a><a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Company</a></div><div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0"><span class="inline-flex rounded-md shadow"><a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo active:bg-gray-50 active:text-indigo-700 transition duration-150 ease-in-out">Log in</a></span></div></nav></div><div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"><div class="rounded-lg shadow-md"><div class="rounded-lg bg-white shadow-xs overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="main-menu"><div class="px-5 pt-4 flex items-center justify-between"><div><img class="h-8 w-auto" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAgCAMAAACvkzHFAAABblBMVEUAAAAAAP+AgP9VVf9AQP9mZv9VVf9JSdtgYN9VVeNNTeZdRuhVVepOTutbSe1VVe5VVfFZTfJVVedVTOxbUu1YUO9aU+lXUOlXUetVTutZU+xXUe5bT+5aUOpYTupXUutaUOtaUOxYT+xWUu5ZUetYUOtZUe1XUO1WT+1aT+pXUexZUO1ZUOxXT+xZT+1YUetYUOtXUOxYUexZUOxYUexXUO1ZUO1ZUOtXUetZUOxYUOtYUOxZT+1ZUOxXUOxYT+xYUO1YUOtZUexYUOxZT+xYUO1ZT+1YUOtZUOxYUexXUOxYUexXUOxYUOxYUexXUOxYUOxYUOtYUOxYUOxYUOxYUOxYT+xYUOxYUOxYUOxYT+xYUOxYUOxYUOxYUO1YUOtYUOxYUOxYT+xYUOxYUOxYUOtYUOxYUOxYUOxXUOxYUOxYUOxZUOxYUOxYUOxYUOxYUOxYT+xYUOxYUOxYUOxYUOxYUOxYUOxYUOz///+7Nmg+AAAAeHRSTlMAAQIDBAUGBwgJCgsMDQ4PEhQVGxwgIiMmJygsLTAxMjM2Nzs/QEVGR0pPVlxeZGVmaWttbm9wc3V2goaKkJKUmZyhoqSmp6mqq6yur7CxsrO2urzFxsfLzdbX2tvc3d7g5ufp6uvs7e7v8PHy8/T19vf4+fv8/f4WzLQ2AAAAAWJLR0R5odzU0AAAAYlJREFUGBmVwfdbklEcxuGPJmWWVGbGaJctWpYRlU1HDlAkW1aWNHgVscSU58/ve8756cXsurxv9uLI02rzzRWC7PjHt8P7aXPwvcx2Dufqhsx8J3H35VUTwL6v8m4SV1ZwBjit4BVxZQXXgHMKZokrKLgF9ETyHhLXuyhvFHNPzlKSNn0VOVESc2dZW6Xj7ND1TM4jvP5D/NOYzJ9L/E/yi0x0gZ0ypcbmfBZzV87GbYJMuflrNoNJ1WTqA0CyIW8EJ1WXqaWAKXlTmIq8VhZTlDcJRPIizHMFeUxd3k8gkvcD80JBHrMmbxWYlDeBqchrZTEz8qaBgUimlgYOrMsbwUnXZFZSmJPTK41iCnNDzuYQQWZmdb2YJqbnk8z3i+yuY1Rma5DdJV7KeYzT2X+Unfpey2kewwx9U6tygja9i/ImMHk5nw8TV1DwAOhek1cgbk7BdeC8ghJxcwrOAlkF48QNy6smgI4leTniut/JbOdwBn/LlLtok3yy3Fy4THBq7MNCPsEe/AWSl71coHcZgwAAAABJRU5ErkJggg==" alt=""/></div><div class="-mr-2"><button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Close menu"><svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button></div></div><div class="px-2 pt-2 pb-3"><a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Product</a><a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Features</a><a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Marketplace</a><a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Company</a></div><div><a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem">Log in</a></div></div></div></div><main class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 xl:mt-28"><div class="text-center"><h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">Data to enrich your<br class="xl:hidden"/><span class="text-indigo-600">online business</span></h2><p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p><div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8"><div class="rounded-md shadow"><a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">Get started</a></div><div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3"><a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500 focus:outline-none focus:border-indigo-300 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">Live demo</a></div></div></div></main></div></div>
 
-// <div class="py-16 bg-gray-50 overflow-hidden lg:py-24"><div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-screen-xl"><svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4" width="404" height="784" fill="none" viewBox="0 0 404 784"><defs><pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"></rect></pattern></defs><rect width="404" height="784" fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"></rect></svg><div class="relative"><h3 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">A better way to send money</h3><p class="mt-4 max-w-3xl mx-auto text-center text-xl leading-7 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in, accusamus quisquam.</p></div><div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center"><div class="relative"><h4 class="text-2xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">Transfer funds world-wide</h4><p class="mt-3 text-lg leading-7 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur minima sequi recusandae, porro maiores officia assumenda aliquam laborum ab aliquid veritatis impedit odit adipisci optio iste blanditiis facere. Totam, velit.</p><ul class="mt-10"><li><div class="flex"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg></div></div><div class="ml-4"><h5 class="text-lg leading-6 font-medium text-gray-900">Competitive exchange rates</h5><p class="mt-2 text-base leading-6 text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p></div></div></li><li class="mt-10"><div class="flex"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg></div></div><div class="ml-4"><h5 class="text-lg leading-6 font-medium text-gray-900">No hidden fees</h5><p class="mt-2 text-base leading-6 text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p></div></div></li><li class="mt-10"><div class="flex"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div></div><div class="ml-4"><h5 class="text-lg leading-6 font-medium text-gray-900">Transfers are instant</h5><p class="mt-2 text-base leading-6 text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p></div></div></li></ul></div><div class="mt-10 -mx-4 relative lg:mt-0"><svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404"><defs><pattern id="ca9667ae-9f92-4be7-abcb-9e3d727f2941" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"></rect></pattern></defs><rect width="784" height="404" fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"></rect></svg><img class="relative mx-auto" width="490" src="/one.jpeg" alt=""/></div></div><svg class="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12" width="404" height="784" fill="none" viewBox="0 0 404 784"><defs><pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"></rect></pattern></defs><rect width="404" height="784" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)"></rect></svg><div class="relative mt-12 sm:mt-16 lg:mt-24"><div class="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center"><div class="lg:col-start-2"><h4 class="text-2xl leading-8 font-extrabold text-gray-900 tracking-tight sm:text-3xl sm:leading-9">Always in the loop</h4><p class="mt-3 text-lg leading-7 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ex obcaecati natus eligendi delectus, cum deleniti sunt in labore nihil quod quibusdam expedita nemo.</p><ul class="mt-10"><li><div class="flex"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg></div></div><div class="ml-4"><h5 class="text-lg leading-6 font-medium text-gray-900">Mobile notifications</h5><p class="mt-2 text-base leading-6 text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p></div></div></li><li class="mt-10"><div class="flex"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div></div><div class="ml-4"><h5 class="text-lg leading-6 font-medium text-gray-900">Reminder emails</h5><p class="mt-2 text-base leading-6 text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p></div></div></li></ul></div><div class="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1"><svg class="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden" width="784" height="404" fill="none" viewBox="0 0 784 404"><defs><pattern id="e80155a9-dfde-425a-b5ea-1f6fadd20131" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="4" height="4" class="text-gray-200" fill="currentColor"></rect></pattern></defs><rect width="784" height="404" fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)"></rect></svg><img class="relative mx-auto" width="490" src="/two.jpg" alt=""/></div></div></div></div></div>
-
-// <div class="bg-white"><div class="max-w-screen-xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8"><div class="px-6 py-6 bg-indigo-700 rounded-lg md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center"><div class="xl:w-0 xl:flex-1"><h2 class="text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-3xl sm:leading-9">Want products news and updates?</h2><p class="mt-3 max-w-3xl text-lg leading-6 text-indigo-200" id="newsletter-headline">Sign up for our newsletter to stay up to date.</p></div><div class="mt-8 sm:w-full sm:max-w-md xl:mt-0 xl:ml-8"><form class="sm:flex" aria-labelledby="newsletter-headline"><input type="email" aria-label="Email address" required="" class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" placeholder="Enter your email"/><div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0"><button class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out">Notify me</button></div></form><p class="mt-3 text-sm leading-5 text-indigo-200">We care about the protection of your data. Read our<a href="#" class="text-white font-medium underline">Privacy Policy.</a></p></div></div></div></div>
-
-// <div class="bg-gray-800"><div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8"><div class="xl:grid xl:grid-cols-3 xl:gap-8"><div class="grid grid-cols-2 gap-8 xl:col-span-2"><div class="md:grid md:grid-cols-2 md:gap-8"><div><h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">Solutions</h4><ul class="mt-4"><li><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Marketing</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Analytics</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Commerce</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Insights</a></li></ul></div><div class="mt-12 md:mt-0"><h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">Support</h4><ul class="mt-4"><li><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Pricing</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Documentation</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Guides</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">API Status</a></li></ul></div></div><div class="md:grid md:grid-cols-2 md:gap-8"><div><h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">Company</h4><ul class="mt-4"><li><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">About</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Blog</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Jobs</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Press</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Partners</a></li></ul></div><div class="mt-12 md:mt-0"><h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">Legal</h4><ul class="mt-4"><li><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Claim</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Privacy</a></li><li class="mt-4"><a href="#" class="text-base leading-6 text-gray-300 hover:text-white">Terms</a></li></ul></div></div></div><div class="mt-8 xl:mt-0"><h4 class="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">Subscribe to our newsletter</h4><p class="mt-4 text-gray-300 text-base leading-6">The latest news, articles, and resources, sent to your inbox weekly.</p><form class="mt-4 sm:flex sm:max-w-md"><input type="email" aria-label="Email address" required="" class="appearance-none w-full px-5 py-3 border border-transparent text-base leading-6 rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 transition duration-150 ease-in-out" placeholder="Enter your email"/><div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0"><button class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out">Subscribe</button></div></form></div></div><div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between"><div class="flex md:order-2"><a href="#" class="text-gray-400 hover:text-gray-300"><span class="sr-only">Facebook</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg></a><a href="#" class="ml-6 text-gray-400 hover:text-gray-300"><span class="sr-only">Instagram</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path></svg></a><a href="#" class="ml-6 text-gray-400 hover:text-gray-300"><span class="sr-only">Twitter</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a><a href="#" class="ml-6 text-gray-400 hover:text-gray-300"><span class="sr-only">GitHub</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg></a><a href="#" class="ml-6 text-gray-400 hover:text-gray-300"><span class="sr-only">Dribbble</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd"></path></svg></a></div><p class="mt-8 text-base leading-6 text-gray-400 md:mt-0 md:order-1">© 2020 Workflow, Inc. All rights reserved.</p></div></div></div>
-
-const html = `<html>
-<head>
-    <title>Turbo cool eshop</title>
-    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AJCQk/yQkJP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/0ZGRv8XFxf/////AP///wD///8A////AP///////////////+7u7v9OTk7/sbGx/11dXf9KSkr///////////+lpaX/4eHh/////wD///8A////AAAAAP8AAAD///////////+8vLz///////X19f/t7e3/gICA/5eXl////////////wAAAP8AAAD/////AKysrP8AAAD/AAAA/wAAAP+enp7/////////////////////////////////5OTk/wAAAP8AAAD/AAAA/6ysrP////8A////AP///wCurq6PlJSUzP///wD///8A////AP///wD///8A////AJSUlMyQkJDY////AP///wD///8A////AP///wD///8AAAAA/wAAAP////8A////AP///wD///8A////AP///wAAAAD/AAAA/////wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/////AP///wD///8A////AP///wD///8AAAAA/wAAAP8AAAD/////AP///wD///8ACwsL/wAAAP8AAAD/lJSU2AAAAP8AAAD/cnJy/1hYWP8AAAD/AAAA/2FhYdgHBwf/AAAA/wAAAP////8A////AP///wD///8A////AP///wAAAAD/s7Oz/wAAAP8AAAD/x8fH/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/////wAAAAD/AAAA/////wAAAAD/AAAA/////wD///8A////AP///wD///8A////AP///wD///8AAAAA/wAAAP+qqqqlAAAA/wAAAP9lZWXjAAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////ALa2tv////8A9vb2UQAAAP8AAAD/////Uf///wDAwMD/////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wBcXFz/AAAA/////wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A//8AAP//AADAAwAAwAMAAIABAAAAAAAA5+cAAOfnAADH4wAAgAEAAPgfAADyTwAA8A8AAPZvAAD+fwAA//8AAA=="
-          rel="icon" type="image/x-icon"/>
+const html = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Static Template</title>
+    <script
+      src="https://fast.wistia.com/embed/medias/o6etgu4t9e.jsonp"
+      async
+    ></script>
+    <script
+      src="https://fast.wistia.com/assets/external/E-v1.js"
+      async
+    ></script>
     <style>
-      :root{--sans-font:-apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif;--mono-font:Consolas,Menlo,Monaco,"Andale Mono","Ubuntu Mono",monospace;--base-fontsize:1.15rem;--header-scale:1.25;--line-height:1.618;--bg:#fff;--accent-bg:#f5f7ff;--text:#212121;--text-light:#585858;--border:#d8dae1;--accent:#0d47a1;--accent-light:#90caf9;--code:#d81b60;--preformatted:#444;--marked:#ffdd33;--disabled:#efefef}@media (prefers-color-scheme:dark){:root{--bg:#212121;--accent-bg:#2b2b2b;--text:#dcdcdc;--text-light:#ababab;--border:#666;--accent:#ffb300;--accent-light:#ffecb3;--code:#f06292;--preformatted:#ccc;--disabled:#111}img,video{opacity:.6}}html{font-family:var(--sans-font)}body{color:var(--text);background:var(--bg);font-size:var(--base-fontsize);line-height:var(--line-height);display:flex;min-height:100vh;flex-direction:column;flex:1;margin:0 auto;max-width:45rem;padding:0 .5rem;overflow-x:hidden;word-break:break-word;overflow-wrap:break-word}header{background:var(--accent-bg);border-bottom:1px solid var(--border);text-align:center;padding:2rem .5rem;width:100vw;position:relative;box-sizing:border-box;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}header h1,header p{margin:0}main{padding-top:1.5rem}h1,h2,h3{line-height:1.1}nav{font-size:1rem;line-height:2;padding:1rem 0}nav a{margin:1rem 1rem 0 0;border:1px solid var(--border);border-radius:5px;color:var(--text)!important;display:inline-block;padding:.1rem 1rem;text-decoration:none;transition:.4s}nav a:hover{color:var(--accent)!important;border-color:var(--accent)}nav a.current:hover{text-decoration:none}footer{margin-top:4rem;padding:2rem 1rem 1.5rem 1rem;color:var(--text-light);font-size:.9rem;text-align:center;border-top:1px solid var(--border)}h1{font-size:calc(var(--base-fontsize) * var(--header-scale) * var(--header-scale) * var(--header-scale) * var(--header-scale));margin-top:calc(var(--line-height) * 1.5rem)}h2{font-size:calc(var(--base-fontsize) * var(--header-scale) * var(--header-scale) * var(--header-scale));margin-top:calc(var(--line-height) * 1.5rem)}h3{font-size:calc(var(--base-fontsize) * var(--header-scale) * var(--header-scale));margin-top:calc(var(--line-height) * 1.5rem)}h4{font-size:calc(var(--base-fontsize) * var(--header-scale));margin-top:calc(var(--line-height) * 1.5rem)}h5{font-size:var(--base-fontsize);margin-top:calc(var(--line-height) * 1.5rem)}h6{font-size:calc(var(--base-fontsize)/ var(--header-scale));margin-top:calc(var(--line-height) * 1.5rem)}a,a:visited{color:var(--accent)}a:hover{text-decoration:none}[role=button],a button,button,input[type=button],input[type=reset],input[type=submit]{border:none;border-radius:5px;background:var(--accent);font-size:1rem;color:var(--bg);padding:.7rem .9rem;margin:.5rem 0;transition:.4s}[role=button][aria-disabled=true],a button[disabled],button[disabled],input[type=button][disabled],input[type=checkbox][disabled],input[type=radio][disabled],input[type=reset][disabled],input[type=submit][disabled],select[disabled]{cursor:default;opacity:.5;cursor:not-allowed}input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;background-color:var(--disabled)}input[type=range]{padding:0}abbr{cursor:help}[role=button]:focus,[role=button]:not([aria-disabled=true]):hover,button:enabled:hover,button:focus,input[type=button]:enabled:hover,input[type=button]:focus,input[type=checkbox]:enabled:hover,input[type=checkbox]:focus,input[type=radio]:enabled:hover,input[type=radio]:focus,input[type=reset]:enabled:hover,input[type=reset]:focus,input[type=submit]:enabled:hover,input[type=submit]:focus{filter:brightness(1.4);cursor:pointer}details{background:var(--accent-bg);border:1px solid var(--border);border-radius:5px;margin-bottom:1rem}summary{cursor:pointer;font-weight:700;padding:.6rem 1rem}details[open]{padding:.6rem 1rem .75rem 1rem}details[open] summary{margin-bottom:.5rem;padding:0}details[open]>:last-child{margin-bottom:0}table{border-collapse:collapse;width:100%;margin:1.5rem 0}td,th{border:1px solid var(--border);text-align:left;padding:.5rem}th{background:var(--accent-bg);font-weight:700}tr:nth-child(even){background:var(--accent-bg)}table caption{font-weight:700;margin-bottom:.5rem}ol,ul{padding-left:3rem}input,select,textarea{font-size:inherit;font-family:inherit;padding:.5rem;margin-bottom:.5rem;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:5px;box-shadow:none;box-sizing:border-box;width:60%;-moz-appearance:none;-webkit-appearance:none;appearance:none}select{background-image:linear-gradient(45deg,transparent 49%,var(--text) 51%),linear-gradient(135deg,var(--text) 51%,transparent 49%);background-position:calc(100% - 20px),calc(100% - 15px);background-size:5px 5px,5px 5px;background-repeat:no-repeat}select[multiple]{background-image:none!important}input[type=checkbox],input[type=radio]{vertical-align:bottom;position:relative}input[type=radio]{border-radius:100%}input[type=checkbox]:checked,input[type=radio]:checked{background:var(--accent)}input[type=checkbox]:checked::after{content:" ";width:.1em;height:.25em;border-radius:0;position:absolute;top:.05em;left:.18em;background:0 0;border-right:solid var(--bg) .08em;border-bottom:solid var(--bg) .08em;font-size:1.8em;transform:rotate(45deg)}input[type=radio]:checked::after{content:" ";width:.25em;height:.25em;border-radius:100%;position:absolute;top:.125em;background:var(--bg);left:.125em;font-size:32px}textarea{width:80%}@media only screen and (max-width:720px){input,select,textarea{width:100%}}input[type=checkbox],input[type=radio]{width:auto}input[type=file]{border:0}fieldset{border:0;padding:0;margin:0}hr{color:var(--border);border-top:1px;margin:1rem auto}mark{padding:2px 5px;border-radius:4px;background:var(--marked)}main img,main video{max-width:100%;height:auto;border-radius:5px}figure{margin:0}figcaption{font-size:.9rem;color:var(--text-light);text-align:center;margin-bottom:1rem}blockquote{margin:2rem 0 2rem 2rem;padding:.4rem .8rem;border-left:.35rem solid var(--accent);opacity:.8;font-style:italic}cite{font-size:.9rem;color:var(--text-light);font-style:normal}code,kbd,pre,pre span,samp{font-size:1.075rem;font-family:var(--mono-font);color:var(--code)}kbd{color:var(--preformatted);border:1px solid var(--preformatted);border-bottom:3px solid var(--preformatted);border-radius:5px;padding:.1rem}pre{padding:1rem 1.4rem;max-width:100%;overflow:auto;overflow-x:auto;color:var(--preformatted);background:var(--accent-bg);border:1px solid var(--border);border-radius:5px}pre code{color:var(--preformatted);background:0 0;margin:0;padding:0}
+    /* Global variables. */
+
+.test {
+  display: inline;
+}
+
+.wrapper-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+}
+
+.media_content-1 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  align-self: center;
+}
+
+.centered_content {
+  padding: 5rem 5rem;
+  border: 3px solid var(--text);
+  text-align: center;
+}
+
+.columns-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
+}
+
+.img-wrapper {
+  background-color: var(--accent);
+  display: flex;
+  min-width: 100%;
+  min-height: 100px;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 720px) {
+  .wrapper-1,
+  .columns-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+:root {
+  /* Set sans-serif & mono fonts */
+  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+
+  /* Default (light) theme */
+  --bg: #fff;
+  --accent-bg: #f5f7ff;
+  --text: #212121;
+  --text-light: #585858;
+  --border: #898ea4;
+  --accent: #0d47a1;
+  --code: #d81b60;
+  --preformatted: #444;
+  --marked: #ffdd33;
+  --disabled: #efefef;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #212121;
+    --accent-bg: #2b2b2b;
+    --text: #dcdcdc;
+    --text-light: #ababab;
+    --accent: #4ecca3;
+    --code: #f06292;
+    --preformatted: #ccc;
+    --disabled: #111;
+  }
+}
+
+/* Reset box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset default appearance */
+textarea,
+select,
+input,
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+html {
+  /* Set the font globally */
+  font-family: var(--sans-font);
+  scroll-behavior: smooth;
+}
+
+/* Make the body a nice central block */
+body {
+  color: var(--text);
+  background-color: var(--bg);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 1fr min(45rem, 90%) 1fr;
+  margin: 0;
+}
+body > * {
+  grid-column: 2;
+}
+
+/* Make the header bg full width, but the content inline with body */
+body > header {
+  background-color: var(--accent-bg);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  padding: 0 0.5rem 2rem 0.5rem;
+  grid-column: 1 / -1;
+}
+
+body > header h1 {
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+body > header p {
+  max-width: 40rem;
+  margin: 1rem auto;
+}
+
+/* Add a little padding to ensure spacing is correct between content and header > nav */
+main {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+body > footer {
+  margin-top: 4rem;
+  padding: 2rem 1rem 1.5rem 1rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+/* Format headers */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.6rem;
+  margin-top: 2.25rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 1.75rem;
+}
+
+h4 {
+  font-size: 1.44rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 0.96rem;
+}
+
+/* Prevent long strings from overflowing container */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Fix line height when title wraps */
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+/* Reduce header size on mobile */
+@media only screen and (max-width: 720px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+    margin-top: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    margin-top: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Format links & buttons */
+a,
+a:visited {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button,
+[role="button"] {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent);
+  font-size: 1rem;
+  color: var(--bg);
+  padding: 0.7rem 0.9rem;
+  margin: 0.5rem 0;
+}
+
+button[disabled],
+[role="button"][aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Set the cursor to '?' on an abbreviation and style the abbreviation to show that there is more information underneath */
+abbr[title] {
+  cursor: help;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+button:focus,
+button:enabled:hover,
+[role="button"]:focus,
+[role="button"]:not([aria-disabled="true"]):hover,
+input[type="submit"]:focus,
+input[type="submit"]:enabled:hover,
+input[type="reset"]:focus,
+input[type="reset"]:enabled:hover,
+input[type="button"]:focus,
+input[type="button"]:enabled:hover,
+label[type="button"]:focus,
+label[type="button"]:hover {
+  filter: brightness(1.4);
+  cursor: pointer;
+}
+
+/* Format navigation */
+header > nav {
+  font-size: 1rem;
+  line-height: 2;
+  padding: 1rem 0 0 0;
+}
+
+/* Use flexbox to allow items to wrap, as needed */
+header > nav ul,
+header > nav ol {
+  align-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items are inline elements, make them behave more like blocks */
+header > nav ul li,
+header > nav ol li {
+  display: inline-block;
+}
+
+header > nav a,
+header > nav a:visited {
+  margin: 0 0.5rem 1rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  display: inline-block;
+  padding: 0.1rem 1rem;
+  text-decoration: none;
+}
+
+header > nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* Reduce nav side on mobile */
+@media only screen and (max-width: 720px) {
+  header > nav a {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    line-height: 1;
+  }
+}
+
+/* Consolidate box styling */
+aside,
+details,
+pre,
+progress {
+  background-color: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+aside {
+  font-size: 1rem;
+  width: 30%;
+  padding: 0 15px;
+  margin-left: 15px;
+  float: right;
+}
+
+/* Make aside full-width on mobile */
+@media only screen and (max-width: 720px) {
+  aside {
+    width: 100%;
+    float: none;
+    margin-left: 0;
+  }
+}
+
+article,
+fieldset {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+article h2:first-child,
+section h2:first-child {
+  margin-top: 1rem;
+}
+
+section {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 1rem;
+  margin: 3rem 0;
+}
+
+/* Don't double separators when chaining sections */
+section + section,
+section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+details {
+  padding: 0.7rem 1rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  margin: -0.7rem -1rem;
+  word-break: break-all;
+}
+
+details[open] > summary + * {
+  margin-top: 0;
+}
+
+details[open] > summary {
+  margin-bottom: 0.5rem;
+}
+
+details[open] > :last-child {
+  margin-bottom: 0;
+}
+
+/* Misc body elements */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 1rem auto;
+}
+
+mark {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background-color: var(--marked);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+figure {
+  margin: 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+blockquote {
+  margin: 2rem 0 2rem 2rem;
+  padding: 0.4rem 0.8rem;
+  border-left: 0.35rem solid var(--accent);
+  color: var(--text-light);
+  font-style: italic;
+}
+
+cite {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: normal;
+}
+
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <header style="display: flex; justify-content: left; text-align: justify;">
+      <div>Green Field</div>
+    </header>
+    <main>
+      <h1>
+        Green field page
+      </h1>
+      <p>Lorem ipsum, hero banner</p>
+      <!-- template 1 -->
+      <div class="wrapper-1">
+        <!-- Wistia video div -->
+        <div
+          class="wistia_responsive_padding media_content-1"
+          style="padding: 56.25% 0 0 0; position: relative;"
+        >
+          <div
+            class="wistia_responsive_wrapper"
+            style="
+              height: 100%;
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 100%;
+            "
+          >
+            <div
+              class="wistia_embed wistia_async_o6etgu4t9e videoFoam=true"
+              style="height: 100%; position: relative; width: 100%;"
+            >
+              <div
+                class="wistia_swatch"
+                style="
+                  height: 100%;
+                  left: 0;
+                  opacity: 0;
+                  overflow: hidden;
+                  position: absolute;
+                  top: 0;
+                  transition: opacity 200ms;
+                  width: 100%;
+                "
+              >
+                <img
+                  src="https://fast.wistia.com/embed/medias/o6etgu4t9e/swatch"
+                  style="
+                    filter: blur(5px);
+                    height: 100%;
+                    object-fit: contain;
+                    width: 100%;
+                  "
+                  alt=""
+                  aria-hidden="true"
+                  onload="this.parentNode.style.opacity=1;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"></img> -->
+        <div>
+          <h2>Title</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            maximus est vitae vehicula facilisis. Proin augue turpis, interdum
+            at sem quis, iaculis auctor ex. Maecenas in neque nibh. Quisque
+            turpis quam, imperdiet ut lectus ut, eleifend congue elit. Praesent
+            gravida finibus arcu et tempor. Morbi quam mi, pretium quis
+            scelerisque in, sagittis non massa.
+          </p>
+          <button>Learn more</button>
+        </div>
+      </div>
+      <!-- template 1 -->
+      <!-- template centered content -->
+      <div class="centered_content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean maximus
+        est vitae vehicula facilisis. Proin augue turpis, interdum at sem quis,
+        iaculis auctor ex. Maecenas in neque nibh. Quisque turpis quam,
+        imperdiet ut lectus ut, eleifend congue elit. Praesent gravida finibus
+        arcu et tempor. Morbi quam mi, pretium quis scelerisque in, sagittis non
+        massa.
+      </div>
+      <!-- template centered content -->
 
-{{articles}}
-
-
-
-
-
-</body>
-
+      <!-- template 3 columns -->
+      <h2>Extra title</h2>
+      <div class="columns-3">
+        <div class="columns-3__item">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+              alt="Electronic devices"
+              loading="lazy"
+              sizes="(max-width: 600px) 480px, 800px"
+              srcset="
+                image-480w.avif                                                                                                                                             480w,
+                https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80 800w
+              "
+            />
+          </div>
+          <h3>Title 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+            saepe sequi minima sint nihil magni perspiciatis commodi, deleniti,
+            sapiente, libero culpa illo. Saepe corporis fuga expedita
+            exercitationem obcaecati quae illo.
+          </p>
+        </div>
+        <div class="columns-3__item">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+              alt="Electronic devices"
+              loading="lazy"
+              sizes="(max-width: 600px) 480px, 800px"
+              srcset="
+                image-480w.avif                                                                                                                                             480w,
+                https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80 800w
+              "
+            />
+          </div>
+          <h3>Title 2</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+            saepe sequi minima.
+          </p>
+        </div>
+        <div class="columns-3__item">
+          <div class="img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
+              alt="Electronic devices"
+              loading="lazy"
+              sizes="(max-width: 600px) 480px, 800px"
+              srcset="
+                image-480w.avif                                                                                                                                             480w,
+                https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80 800w
+              "
+            />
+          </div>
+          <h3>Title 3</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+            saepe sequi minima sint nihil magni perspiciatis commodi, deleniti,
+            sapiente, libero culpa illo.
+          </p>
+        </div>
+      </div>
+      <!-- template 3 columns -->
+    </main>
+    <footer>footer</footer>
+  </body>
 </html>
 
 `;
 
 // const articles = [
 
-
-
-
 async function handleRequest(request, env) {
-  const value = await env.GREEN_FIELD_KV.get("articles");
-  let articles = JSON.parse(value)
+  // const value = await env.GREEN_FIELD_KV.get("articles");
+  // let articles = JSON.parse(value);
 
-  
-  let formatedHtml = html.replace(
-    "{{articles}}",
-    articles.map(
-      (item) => `<div><h1>${item.title}</h1><p>${item.desription}</p></div>`
-    )
-  );
+  // let formatedHtml = html.replace(
+  //   "{{articles}}",
+  //   articles.map(
+  //     (item) => `
+  //   <div>
+  //     <h1>${item.title}</h1>
+  //     <p>${item.desription}</p>
+  //     <img src="https://green-field.pages.dev/nature-3294632_1920-1024x682.jpeg" />
+  //   </div>
+  //   `
+  //   )
+  // );
 
-  return new Response(formatedHtml, {
+  return new Response(html, {
     headers: {
       "content-type": "text/html;charset=UTF-8",
     },
