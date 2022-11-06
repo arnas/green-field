@@ -36,7 +36,7 @@ async function handleRequest(request, env) {
     });
   }
 
-  if (pathname.startsWith("/robots.txt") || pathname.startsWith("/favicon.txt") ) {
+  if (pathname.startsWith("/robots.txt") || pathname.startsWith("/favicon.ico") ) {
 
 
 
