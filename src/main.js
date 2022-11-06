@@ -4,9 +4,9 @@ export const mainHTML = `<!DOCTYPE html>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="description" content="Sustainable Tech Demo Page" />
- <style>
- /* Global variables. */
+    <meta name="description" content="Sustainable Media Platform" />
+    <style>
+    /* Global variables. */
 
 .test {
   display: inline;
@@ -16,6 +16,7 @@ export const mainHTML = `<!DOCTYPE html>
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  align-items: center;
 }
 
 .media_content-1 {
@@ -58,8 +59,8 @@ export const mainHTML = `<!DOCTYPE html>
   border-radius: 5px;
 }
 
-.article_content > img {
-  max-width: 470px;
+.article_content {
+  max-width: 610px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -590,8 +591,8 @@ cite {
   left: 0;
 }
 
-</style>
-    <title>Green Field</title>
+    </style>
+    <title>Gryn Fyld</title>
   </head>
   <body>
     <header>
@@ -668,7 +669,7 @@ cite {
       <div class="hero-banner">
         <h1>
           <!-- <div id="eco-mode-state" /> -->
-          🍃 Sustainable Tech Demo Page
+          🍃 Sustainable Media Platform
         </h1>
         <div>
           <p>
@@ -678,6 +679,11 @@ cite {
             It aims to demonstrate a simple media site aimed at sustainability
             and green tech.
           </p>
+          <a
+            href="https://rocky-brie-147.notion.site/Greenfield-Whitepaper-43e591f29f3446f089616a324ef91b76"
+          >
+            <button>Read our Whitepaper</button>
+          </a>
           <svg
             class="hero-banner__img"
             width="246"
@@ -707,7 +713,7 @@ cite {
           How does this website work?
         </h2>
         <p>
-          Read an article to learn more about our solution.
+          Read an article about our solution
         </p>
         <a class="button" href="articles/how-it-works">Read more</a>
       </div>
@@ -734,12 +740,40 @@ cite {
           <p>
             We chose Wistia as our video provider since they run on renewable
             energy and have optimized computing, which reduces asset sizes up to
-            40%. You can click on the link to learn more about Wistia's approach
+            40%. You can click on the link to Read more about Wistia's approach
             to sustainability.
           </p>
-          <a class="button" href="articles/video-impact">Learn more</a>
+          <a class="button" href="articles/video-impact">Read more</a>
         </div>
       </div>
+
+      <!-- template 1 -->
+      <div class="wrapper-1">
+        <div>
+          <h2>
+            How energy consumption is taken into account in service design?
+          </h2>
+          <p>
+            Analysing user journeys can help to identify UX flows and features
+            which can be more energy efficient.
+          </p>
+          <a class="button" href="articles/service-design">Read more</a>
+        </div>
+        <div class="img-wrapper">
+          <img
+            src="https://green-field.pages.dev/houses.avif"
+            alt="wireframe"
+            loading="lazy"
+            sizes="(max-width: 600px) 480px, 800px"
+            srcset="
+              image-480w.avif                           480w,
+              https://green-field.pages.dev/houses.avif 800w
+            "
+          />
+        </div>
+      </div>
+      <!-- template 1 -->
+
       <div>
         <h2>🖼️ Image compression matters</h2>
         <div>
@@ -755,7 +789,7 @@ cite {
               savings were observed compared to JPEG while maintaining similar
               image quality.
             </p>
-            <a class="button" href="articles/image-compression">Learn more</a>
+            <a class="button" href="articles/image-compression">Read more</a>
           </div>
         </div>
       </div>
@@ -864,12 +898,12 @@ cite {
       <!-- template 1 -->
       <div class="wrapper-1">
         <div>
-          <h2>Centralized data to multiple cache servers</h2>
+          <h2>Data in multiple cache servers</h2>
           <p>
-            In this application we are using Cloudflare KV to store and update
-            articles in distributed data stores.
+            In this application we are using Cloudflare Key-Value to store and
+            update articles in distributed data stores.
           </p>
-          <a class="button" href="articles/cache-servers">Learn more</a>
+          <a class="button" href="articles/cache-servers">Read more</a>
         </div>
         <div class="img-wrapper">
           <img
@@ -885,35 +919,13 @@ cite {
         </div>
       </div>
       <!-- template 1 -->
-      <!-- template 1 -->
-      <div class="wrapper-1">
-        <div class="img-wrapper">
-          <img
-            src="https://green-field.pages.dev/houses.avif"
-            alt="wireframe"
-            loading="lazy"
-            sizes="(max-width: 600px) 480px, 800px"
-            srcset="
-              image-480w.avif                           480w,
-              https://green-field.pages.dev/houses.avif 800w
-            "
-          />
-        </div>
-        <div>
-          <h2>
-            How energy consumption is taken into account in service design?
-          </h2>
-          <p>
-            Analysing user journeys can help to identify UX flows and features
-            which can be more energy efficient.
-          </p>
-          <a class="button" href="articles/service-design">Learn more</a>
-        </div>
-      </div>
-      <!-- template 1 -->
     </main>
     <footer>
-      This page weights less than 90% average file size.
+      This web page is cleaner than 92 % of web pages
+      <a
+        href="https://www.websitecarbon.com/website/green-field-worker-v2-workers-dev/"
+        >tested</a
+      >
       <span style="display: block;">Made with ☕ @ Junction 2022</span>
     </footer>
   </body>
@@ -930,6 +942,7 @@ cite {
 
         var image = new Image();
         image.src = source;
+        image.alt = "Grass";
         image.addEventListener(
           "load",
           (function () {
@@ -1026,7 +1039,7 @@ cite {
         latencySpan.innerHTML =
           "It took only <i> " +
           Math.ceil(val) +
-          " ms</i> to connect to an Edge location.";
+          " ms</i> to connect to an Edge location";
       }
     });
 
@@ -1038,5 +1051,4 @@ cite {
     }
   </script>
 </html>
-
 `

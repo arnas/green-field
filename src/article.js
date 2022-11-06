@@ -15,6 +15,7 @@ export const articleHTML = `<!DOCTYPE html>
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  align-items: center;
 }
 
 .media_content-1 {
@@ -57,8 +58,8 @@ export const articleHTML = `<!DOCTYPE html>
   border-radius: 5px;
 }
 
-.article_content > img {
-  max-width: 470px;
+.article_content {
+  max-width: 610px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -589,7 +590,7 @@ cite {
   left: 0;
 }
 
-</style>
+    </style>
     <title>Green Field</title>
   </head>
   <body>
